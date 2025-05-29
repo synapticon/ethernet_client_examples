@@ -2,6 +2,8 @@
 
 This repository contains ethernet_client, a static C++ library for communicating with SOMANET Integro devices, along with usage examples.
 
+You can find more information about this library in our [official documentation](https://synapticon.github.io/motion_master/md_libs_ethernet_client_README.html).
+
 ## Building on Windows 11
 
 **Required Software:**
