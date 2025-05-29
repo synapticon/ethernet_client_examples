@@ -37,7 +37,7 @@ The Ethernet Client library requires the following dependencies:
 - [Boost.Asio](https://www.boost.org/doc/libs/1_83_0/doc/html/boost_asio.html): For networking functionality.
 - [nlohmann/json](https://github.com/nlohmann/json): For JSON handling.
 
-We recommend using `vcpkg`, a cross-platform package manager, to easily install these dependencies. Here are the steps for Windows (x64):
+We recommend using **vcpkg**, a cross-platform package manager, to simplify the installation of required dependencies. Follow these steps to set up vcpkg and install the necessary libraries on **Windows (x64)**:
 
 ```pwsh
 cd ~
@@ -47,6 +47,8 @@ cd vcpkg
 .\vcpkg integrate install
 .\vcpkg install boost-asio nlohmann-json --triplet x64-windows
 ```
+
+This will install `boost-asio` and `nlohmann-json` for the `x64-windows` target and integrate vcpkg with your Visual Studio environment.
 
 ### Build Instructions
 
