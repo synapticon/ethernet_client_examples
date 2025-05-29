@@ -11,7 +11,6 @@ You can find more information about this library in our [official documentation]
 - Git
 - Visual Studio 2022
 - CMake
-- Ninja
 
 To temporarily enable `cl.exe` in your PowerShell 7 (x64) session, follow these steps:
 
