@@ -40,3 +40,5 @@ cd build
 cmake ..
 cmake --build . --config Release
 ```
+
+The compiled executable can now be found at `Release/main.exe`.
