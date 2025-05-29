@@ -1,4 +1,7 @@
-#include "ethernet_client/ethernet_client.h"
+#include "ethernet_client.h"
+
+#include <cassert>
+#include <string>
 
 #include "loguru.h"
 

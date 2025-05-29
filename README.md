@@ -48,13 +48,31 @@ cd vcpkg
 .\vcpkg install boost-asio nlohmann-json --triplet x64-windows
 ```
 
-### Build
+### Build Instructions
+
+Clone the repository and configure the project using CMake:
 
 ```pwsh
 git clone https://github.com/synapticon/ethernet_client_examples.git
 cd ethernet_client_examples
-cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE="$env:USERPROFILE/vcpkg/scripts/buildsystems/vcpkg.cmake" -DVCPKG_TARGET_TRIPLET=x64-windows -Wno-dev
+cmake -B build -S . `
+  -DCMAKE_TOOLCHAIN_FILE="$env:USERPROFILE/vcpkg/scripts/buildsystems/vcpkg.cmake" `
+  -DVCPKG_TARGET_TRIPLET=x64-windows `
+  -Wno-dev
+```
+
+To build the **Debug** version:
+
+```pwsh
 cmake --build build --config Debug
 ```
 
-The compiled executable can now be found at `build/Debug/main.exe`.
+The compiled executable will be located at: `build/Debug/main.exe`
+
+To build the **Release** version instead:
+
+```pwsh
+cmake --build build --config Release
+```
+
+The compiled executable will then be located at: `build/Release/main.exe`
