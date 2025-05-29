@@ -78,3 +78,45 @@ cmake --build build --config Release
 ```
 
 The compiled executable will then be located at: `build/Release/main.exe`
+
+## Building on Linux
+
+We recommend using **vcpkg**, a cross-platform package manager, to simplify the installation of required dependencies. Follow these steps to set up vcpkg and install the necessary libraries on **Linux (x64)**:
+
+```bash
+cd ~
+git clone https://github.com/microsoft/vcpkg.git
+cd vcpkg
+./bootstrap-vcpkg.sh
+./vcpkg integrate install
+./vcpkg install boost-asio nlohmann-json --triplet x64-linux
+```
+
+### Build Instructions
+
+Clone the repository and configure the project using CMake:
+
+```bash
+git clone https://github.com/synapticon/ethernet_client_examples.git
+cd ethernet_client_examples
+cmake -B build -S . \
+  -DCMAKE_TOOLCHAIN_FILE=~/vcpkg/scripts/buildsystems/vcpkg.cmake \
+  -DVCPKG_TARGET_TRIPLET=x64-linux \
+  -Wno-dev
+```
+
+To build the **Debug** version:
+
+```bash
+cmake --build build --config Debug
+```
+
+The compiled executable will be located at: `build/Debug/main`
+
+To build the **Release** version instead:
+
+```bash
+cmake --build build --config Release
+```
+
+The compiled executable will then be located at: `build/Release/main`
