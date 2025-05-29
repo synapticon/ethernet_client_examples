@@ -1,6 +1,6 @@
 # ethernet_client_examples
 
-This repository contains ethernet_client, a static C++ library for communicating with SOMANET Integro devices, along with usage examples.
+This repository contains **ethernet_client**, a static C++ library for communicating with SOMANET Integro devices, along with usage examples.
 
 You can find more information about this library in our [official documentation](https://synapticon.github.io/motion_master/md_libs_ethernet_client_README.html).
 
@@ -8,9 +8,10 @@ You can find more information about this library in our [official documentation]
 
 **Required Software:**
 
-- Git
-- Visual Studio 2022
-- CMake
+- [Git](https://git-scm.com/)
+- [Visual Studio 2022](https://visualstudio.microsoft.com/vs/)
+- [CMake](https://cmake.org/)
+- [vcpkg](https://vcpkg.io/en/) (optional)
 
 To temporarily enable `cl.exe` in your PowerShell 7 (x64) session, follow these steps:
 
