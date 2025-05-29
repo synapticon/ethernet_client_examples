@@ -47,10 +47,10 @@ if(WIN32)
   )
 else()
   target_link_libraries(main PRIVATE
-    $<$<CONFIG:Debug>:${CMAKE_SOURCE_DIR}/lib/ethernet_client_debug.a>
-    $<$<CONFIG:Release>:${CMAKE_SOURCE_DIR}/lib/ethernet_client.a>
-    $<$<CONFIG:Debug>:${CMAKE_SOURCE_DIR}/lib/common_debug.a>
-    $<$<CONFIG:Release>:${CMAKE_SOURCE_DIR}/lib/common.a>
+    $<$<CONFIG:Debug>:${CMAKE_SOURCE_DIR}/lib/libethernet_client_debug.a>
+    $<$<CONFIG:Release>:${CMAKE_SOURCE_DIR}/lib/libethernet_client.a>
+    $<$<CONFIG:Debug>:${CMAKE_SOURCE_DIR}/lib/libcommon_debug.a>
+    $<$<CONFIG:Release>:${CMAKE_SOURCE_DIR}/lib/libcommon.a>
   )
 endif()
 

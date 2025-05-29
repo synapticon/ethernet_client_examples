@@ -101,22 +101,17 @@ git clone https://github.com/synapticon/ethernet_client_examples.git
 cd ethernet_client_examples
 cmake -B build -S . \
   -DCMAKE_TOOLCHAIN_FILE=~/vcpkg/scripts/buildsystems/vcpkg.cmake \
+  -DCMAKE_BUILD_TYPE=Release \
   -DVCPKG_TARGET_TRIPLET=x64-linux \
   -Wno-dev
 ```
 
-To build the **Debug** version:
+> ℹ️ Note: This project uses a single-config generator (like most Unix Makefiles), so the build type must be set at configuration time. In the example above, `Release` is specified to ensure that non-debug libraries (`libethernet_client.a` and `libcommon.a`) are linked instead of their `_debug` variants.
+
+To build the **Release** version:
 
 ```bash
-cmake --build build --config Debug
+cmake --build build
 ```
 
-The compiled executable will be located at: `build/Debug/main`
-
-To build the **Release** version instead:
-
-```bash
-cmake --build build --config Release
-```
-
-The compiled executable will then be located at: `build/Release/main`
+The compiled executable will then be located at: `build/main`
