@@ -53,8 +53,8 @@ cd vcpkg
 ```pwsh
 git clone https://github.com/synapticon/ethernet_client_examples.git
 cd ethernet_client_examples
-cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE="$env:USERPROFILE/vcpkg/scripts/buildsystems/vcpkg.cmake" -DVCPKG_TARGET_TRIPLET=x64-windows
+cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE="$env:USERPROFILE/vcpkg/scripts/buildsystems/vcpkg.cmake" -DVCPKG_TARGET_TRIPLET=x64-windows -Wno-dev
 cmake --build build
 ```
 
-The compiled executable can now be found at `build/Release/main.exe`.
+The compiled executable can now be found at `build/Debug/main.exe`.
