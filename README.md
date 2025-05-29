@@ -30,15 +30,31 @@ To temporarily enable `cl.exe` in your PowerShell 7 (x64) session, follow these 
 
 > ℹ️ The previous steps are necessary because the Developer Command Prompt for VS 2022 may default to the 32-bit toolset, causing linker failures in 64-bit builds. You can verify this by running `cl` and checking if the output includes **for x86**.
 
-### Steps
+### Dependencies
+
+The Ethernet Client library requires the following dependencies:
+
+- [Boost.Asio](https://www.boost.org/doc/libs/1_83_0/doc/html/boost_asio.html): For networking functionality.
+- [nlohmann/json](https://github.com/nlohmann/json): For JSON handling.
+
+We recommend using `vcpkg`, a cross-platform package manager, to easily install these dependencies. Here are the steps for Windows (x64):
+
+```pwsh
+cd ~
+git clone https://github.com/microsoft/vcpkg.git
+cd vcpkg
+.\bootstrap-vcpkg.bat -DisablePackagePrecache
+.\vcpkg integrate install
+.\vcpkg install boost-asio nlohmann-json --triplet x64-windows
+```
+
+### Build
 
 ```pwsh
 git clone https://github.com/synapticon/ethernet_client_examples.git
 cd ethernet_client_examples
-mkdir build
-cd build
-cmake ..
-cmake --build . --config Release
+cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE="$env:USERPROFILE/vcpkg/scripts/buildsystems/vcpkg.cmake" -DVCPKG_TARGET_TRIPLET=x64-windows
+cmake --build build
 ```
 
-The compiled executable can now be found at `Release/main.exe`.
+The compiled executable can now be found at `build/Release/main.exe`.
