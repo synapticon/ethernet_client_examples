@@ -54,7 +54,7 @@ cd vcpkg
 git clone https://github.com/synapticon/ethernet_client_examples.git
 cd ethernet_client_examples
 cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE="$env:USERPROFILE/vcpkg/scripts/buildsystems/vcpkg.cmake" -DVCPKG_TARGET_TRIPLET=x64-windows -Wno-dev
-cmake --build build
+cmake --build build --config Debug
 ```
 
 The compiled executable can now be found at `build/Debug/main.exe`.

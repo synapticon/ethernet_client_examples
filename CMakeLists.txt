@@ -40,12 +40,18 @@ target_include_directories(main PRIVATE ${CMAKE_SOURCE_DIR}/include)
 # Link the ethernet_client library based on the platform
 if(WIN32)
   target_link_libraries(main PRIVATE
-    ${CMAKE_SOURCE_DIR}/lib/ethernet_client.lib
-    ${CMAKE_SOURCE_DIR}/lib/common.lib)
+    $<$<CONFIG:Debug>:${CMAKE_SOURCE_DIR}/lib/ethernet_client_debug.lib>
+    $<$<CONFIG:Release>:${CMAKE_SOURCE_DIR}/lib/ethernet_client.lib>
+    $<$<CONFIG:Debug>:${CMAKE_SOURCE_DIR}/lib/common_debug.lib>
+    $<$<CONFIG:Release>:${CMAKE_SOURCE_DIR}/lib/common.lib>
+  )
 else()
   target_link_libraries(main PRIVATE
-    ${CMAKE_SOURCE_DIR}/lib/ethernet_client.a
-    ${CMAKE_SOURCE_DIR}/lib/common.a)
+    $<$<CONFIG:Debug>:${CMAKE_SOURCE_DIR}/lib/ethernet_client_debug.a>
+    $<$<CONFIG:Release>:${CMAKE_SOURCE_DIR}/lib/ethernet_client.a>
+    $<$<CONFIG:Debug>:${CMAKE_SOURCE_DIR}/lib/common_debug.a>
+    $<$<CONFIG:Release>:${CMAKE_SOURCE_DIR}/lib/common.a>
+  )
 endif()
 
 # Link against common libraries (Boost.Asio and nlohmann_json)
