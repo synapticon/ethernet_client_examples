@@ -11,7 +11,7 @@ const int kPort = 8080;
 int main() {
   auto ed = EthernetDevice{kIp, kPort};
 
-  // Check if the socket is not connected
+  // Check if the socket initially disconnected
   assert(ed.isConnected() == false);
 
   LOG_F(INFO, "Connecting to %s:%d...", kIp.c_str(), kPort);
@@ -27,7 +27,6 @@ int main() {
 
   LOG_F(INFO, "Getting state...");
   auto state = ed.getState();
-
   LOG_F(INFO, "done. State: %d", state);
 
   // Expecting state to be OP (0x08)
